@@ -30,3 +30,4 @@ while (s[ptr] != '\0')
 	}
 write(1, s, count);
 }
+}
