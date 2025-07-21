@@ -16,5 +16,5 @@
 void tool_char(va_list note)
 {
 char c = (char) va_arg(note, int);
-write(1, c, 1);
+write(1, &c, 1);
 }
