@@ -17,5 +17,5 @@ tool_string(note);
 tool_char(note);
 
 va_end(note);
-
+return (0);
 }
