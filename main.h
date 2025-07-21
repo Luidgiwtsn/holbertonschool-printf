@@ -17,5 +17,7 @@
  */
 
 int _printf(const char *format, ...);
+void tool_string(va_list note);
+void tool_char(va_list note);
 
 #endif
