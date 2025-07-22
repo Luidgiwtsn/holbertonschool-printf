@@ -20,4 +20,9 @@ int _printf(const char *format, ...);
 void tool_string(va_list note);
 void tool_char(va_list note);
 
+typedef struct atlas{
+char specifier;
+void (*handler)(va_list);
+}atlas;
+
 #endif
