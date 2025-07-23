@@ -91,3 +91,7 @@ If you're planning to add new features, don't forget to manage memory properly u
 ## Man Page
 
 For more information about how the function works or how to troubleshoot errors, refer to the manual page man_page_printf included in the project folder.
+
+##Flowcharts
+
+<img width="1556" height="1911" alt="Diagramme sans nom drawio" src="https://github.com/user-attachments/assets/b2ea00d5-ab36-44e3-943c-59b12d575910" />
