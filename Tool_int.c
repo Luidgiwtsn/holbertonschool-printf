@@ -5,6 +5,10 @@
 *
 *@note: the va_list containing the arguments passed to _printf.
 *
+* This function retrieves an int from the va_list, handles negative
+* numbers, converts il to a string, and writes it to stdout.
+*
+*Return: Number of characters printed.
 */
 
 int tool_int(va_list note)
@@ -28,7 +32,7 @@ else
 	while (n > 0)
 		{
 		buffer[i++] = (n % 10) + '0';
-		n /=10;
+		n /= 10;
 		}
 	if (sign == -1)
 	buffer[i++] = '-';
@@ -37,10 +41,10 @@ else
 for (j = 0; j < i / 2; j++)
 	{
 	char c = buffer[j];
+
 	buffer[j] = buffer[i - 1 - j];
 	buffer[i - 1 - j] = c;
 	}
-
 write(1, buffer, i);
-return i;
+return (i);
 }
