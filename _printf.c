@@ -1,16 +1,15 @@
 #include "main.h"
 
 /**
+  *_printf - Custom implementation of the standard printf function
+  *@format: The format string containing conversion specifiers
   *
-  *
-  *
-  *
+  *Return: The total number of characters printed
  */
 
 int _printf(const char *format, ...)
 {
 va_list note;
-
 atlas formats[] = {
 {'c', tool_char},
 {'s', tool_string},
@@ -18,13 +17,9 @@ atlas formats[] = {
 {'i', tool_int},
 };
 
-int a = 0;
-int i;
-int size = sizeof(formats) / sizeof (formats[0]);
-char buf[2];
-int found = 0;
-char c = '%';
-int count = 0;
+int a = 0, i, count = 0, found = 0;
+int size = sizeof(formats) / sizeof(formats[0]);
+char buff[2], c = '%';
 
 va_start(note, format);
 
@@ -42,7 +37,7 @@ while (format[a] != '\0')
 		found = 0;
 		for (i = 0; i < size; i++)
 			{
-			if (format [a + 1] == formats[i].specifier)
+			if (format[a + 1] == formats[i].specifier)
 				{
 				count += formats[i].handler(note);
 				found = 1;
@@ -66,5 +61,5 @@ while (format[a] != '\0')
 			}
 	}
 va_end(note);
-return count;
+return (count);
 }
