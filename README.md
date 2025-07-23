@@ -69,7 +69,6 @@ We decided to split the code into multiple files to better divide the tasks and 
 
 To compile the project, use the following command:
 
-```bash
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c -o printf
 
 ## Example Usage
