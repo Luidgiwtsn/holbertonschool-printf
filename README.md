@@ -1,89 +1,94 @@
-                                          "Projet _Printf par Luidgi Watson && Lapique Philippe"
+# _Printf Project by Luidgi Watson & Philippe Lapique
 
-# Voici notre projet de groupe pour Holberton School, afin de coder une copies de la fonction "Printf" de la bibliothèque <stdio.> en langage C.
+This group project was carried out as part of the Holberton School curriculum. The goal was to implement a simplified version of the `printf` function from the `<stdio.h>` library in the C programming language.
 
-# Les Objectif attendues : 
-  1. Couvrir les caractères avec '%c'.
-  2. Couvrir les strings avec '%s'.
-  3. Couvrir les entiers ( décimal signé) avec '%d', '%i'.
-  4. Couvrir les pourcentage.
+---
 
-# Les limitation et contraindication de l'exercice :
+## 🎯 Project Objectives
 
-Pour réaliser cette fonction nous avions le droit d'utiliser :
+1. Handle characters with `%c`
+2. Handle strings with `%s`
+3. Handle signed integers (decimal) with `%d` and `%i`
+4. Handle the percent symbol `%%`
 
-  - write (man 2 write)
-  - malloc (man 3 malloc)
-  - free (man 3 free)
-  - va_start (man 3 va_start)
-  - va_end (man 3 va_end)
-  - va_copy (man 3 va_copy)
-  - va_arg (man 3 va_arg)
+---
 
-A l'inverse nous ne devions pas :
+## 🚫 Project Limitations and Constraints
 
-  - Utiliser les fonctions présentes dans la bibliothèque standars de <stdio.h>
-  - Utiliser la condition "if" ou "switch"
-  - You don’t have to handle the flag characters
-  - You don’t have to handle field width
-  - You don’t have to handle precision
-  - You don’t have to handle the length modifiers
+We were **allowed** to use the following functions:
 
-# Organisation du travail pour le projet : 
+- `write` (man 2 write)
+- `malloc` (man 3 malloc)
+- `free` (man 3 free)
+- `va_start` (man 3 va_start)
+- `va_end` (man 3 va_end)
+- `va_copy` (man 3 va_copy)
+- `va_arg` (man 3 va_arg)
 
-Temps estimer du projet : ( 35 heures ) 
-Condition de travail full présentielle au campus de Bordeaux, avec une division du travail à parts égale :
+However, we were **not allowed** to:
 
-  - M.Lapique s'occuper de la tâche 0 qui gère les strings et les caractère. 
+- Use any function from the standard `<stdio.h>` library
+- Use `if` or `switch` statements
+- Handle flag characters (e.g., `+`, `-`, `#`)
+- Handle field width
+- Handle precision
+- Handle length modifiers (`l`, `h`, etc.)
 
-  - M.Watson s'occuper de la tache 1 qui gère les entiers et les décimales.
+---
 
-Un travail sur deux branches à étaient réaliser avec un pull request pour fusionner a la branche principal en fin de projet de plus des check in régulier ont étaient organiser sur le travail du code de chacuns.
+## 🗂️ Project Organization
 
-# Réflexion sur l'architecture du projet : 
+**Estimated time to complete**: 35 hours  
+Work was done entirely in person on campus (Bordeaux), with equal task distribution:
 
-Nous avons pris la décision commune de diviser le commande en plusieurs fichiers afin de se répartir le travail plus facilement et de pouvoir controler individuellement chaque fonction en cas de problème lors de la compilation.
+- **Mr. Lapique** was responsible for Task 0: handling strings and characters.
+- **Mr. Watson** was responsible for Task 1: handling integers and decimals.
 
-- README.md : Un readme avec l'explication du projet et de sa structure. 
-- Tool-char.c : Une fonction pour pouvoir gerer le cas d'un caractère.
-- Tool_string.c : Une fonction pour pouvoir gerer le cas d'une string. 
-- Tool_int.c : Une fonction pour gerer le cas des entiers qu'ils soit négatif ou positif.
-- _printf.c : Notre fonction printf qui appelle les fonction Tool en fonction de la correspondance avec le tableau de structure "atlas"
-- main.c : Le fichier qui contient différent cas afin de pouvoir réaliser des test de l'executable _printf.
-- main.h : Le fichier Header avec nos prototype de fonction, nos différentres bibliothèques ainsi que notre variables de tableaux de structure.
-- man_page_printf : Manuel d'utilisation de la fonction.
+Work was carried out using two separate branches. A pull request was used to merge everything into the main branch at the end of the project. Regular check-ins were conducted to review each other's code and progress.
 
-<img width="458" height="502" alt="Main h" src="https://github.com/user-attachments/assets/c447bf2e-1d45-43f7-9492-f03050658d0b" />
+---
 
-# Compilation :
+## 🧱 Project Structure
 
-Afin de pouvoir compiler le projet vous devez utiliser la commande : 
+We decided to split the code into multiple files to better divide the tasks and to isolate functionalities for easier debugging and testing.
 
+- `README.md` : Contains explanations about the project and its structure
+- `tool_char.c` : Handles character input (`%c`)
+- `tool_string.c` : Handles string input (`%s`)
+- `tool_int.c` : Handles signed integer input (both negative and positive)
+- `_printf.c` : Main `_printf` function, which calls the appropriate tool function based on the format type using a structure table called `atlas`
+- `main.c` : Contains different test cases used to verify the behavior of `_printf`
+- `main.h` : Header file containing function prototypes, necessary libraries, and the structure definition
+- `man_page_printf` : Manual page for using the function
+  
+<img width="458" height="502" alt="Main h" src="https://github.com/user-attachments/assets/8181c689-f4f3-4dbc-b59b-58f135ff0bd0" />
+
+---
+
+## 🛠️ Compilation
+
+To compile the project, use the following command:
+
+```bash
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c -o printf
 
-Attention au standars de compilation de votre visual code ou de votre terminal !
+## Example Usage
 
-# Exemple d'utilisation de la commande :
+<img width="926" height="800" alt="utilisation" src="https://github.com/user-attachments/assets/14216ad9-0932-477d-9361-00afc021cd36" />
 
-<img width="926" height="800" alt="utilisation" src="https://github.com/user-attachments/assets/524b91d5-8b70-4579-bbc9-45cfbe4777e1" />
+## 🚀 Future Improvements 
 
-# Les évolutions possibles dans l'avenir :
+The function could be significantly improved by adding support for:
+  - Unsigned integers [%u]
+  - Unsigned octal values [%o]
+  - Unsigned hexadecimal values [%x, %X]
+  - Pointer addresses [%p]
 
-La fonction peut encore être largement améliorer afin de couvrir toutes les autres sorties commes : 
-  - Les unsigned [%u]
-  - Les unsigned octal [%o]
-  - Les unsigned hexadecimal [%x, %X]
-  - Les pointeur sur adresse [%p]
+It would also be helpful to add proper handling for integer overflow and define MIN/MAX limits to prevent memory issues.
 
-De plus il manquerais d'ajouter une limite pour la valeur MIN et MAX d'un entier afin d'éviter toutes fuites de mémoire.
+📌 Important Note:
+If you're planning to add new features, don't forget to manage memory properly using malloc and free. Use the valgrind tool in the terminal to test for memory leaks.
 
-Note importante : 
+## Man Page
 
-Dans le cas d'une amélioration ne pas oublier d'allouer et de free la mémoire avec les commandes "Malloc" et "Free" ainsi que de tester cela avec le maccros "Valgrind" dans le terminal.
-
-# Man page 
-
-Pour plus de details dans le fonctionnement de la fonction ou pour une erreur lors de son utilisation, vous pouvez vous réferer au man page présent dans le dossier holberton.
-
-
-
+For more information about how the function works or how to troubleshoot errors, refer to the manual page man_page_printf included in the project folder.
