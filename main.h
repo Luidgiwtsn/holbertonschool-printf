@@ -17,12 +17,13 @@
  */
 
 int _printf(const char *format, ...);
-void tool_string(va_list note);
-void tool_char(va_list note);
+int tool_string(va_list note);
+int tool_char(va_list note);
+int tool_int(va_list note);
 
 typedef struct atlas{
-char specifier;
-void (*handler)(va_list);
+	char specifier;
+	int (*handler)(va_list);
 }atlas;
 
 #endif
