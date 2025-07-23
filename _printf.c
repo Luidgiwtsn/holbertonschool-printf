@@ -19,7 +19,7 @@ atlas formats[] = {
 
 int a = 0, i, count = 0, found = 0;
 int size = sizeof(formats) / sizeof(formats[0]);
-char buff[2], c = '%';
+char buf[2], c = '%';
 
 va_start(note, format);
 
