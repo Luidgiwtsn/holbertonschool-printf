@@ -8,6 +8,7 @@
   *If the string is NULL, it prints "(null)" instead.
   *Otherwise, it writes the string to the standard output using write ().
   *
+  *Return: Number of characters printed.
  */
 
 int tool_string(va_list note)
@@ -24,5 +25,5 @@ while (s[len] != '\0')
 	len++;
 	}
 write(1, s, len);
-return len;
+return (len);
 }
