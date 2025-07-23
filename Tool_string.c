@@ -10,24 +10,19 @@
   *
  */
 
-void tool_string(va_list note)
+int tool_string(va_list note)
 {
-unsigned int count = 0;
-unsigned int ptr = 0;
-
+int len = 0;
 char *s = va_arg(note, char *);
 
 if (s == NULL)
-{
-write(1, "(null)", 6);
-}
-else
-{
-while (s[ptr] != '\0')
 	{
-	count++;
-	ptr++;
+	s = "(null)";
 	}
-write(1, s, count);
-}
+while (s[len] != '\0')
+	{
+	len++;
+	}
+write(1, s, len);
+return len;
 }
