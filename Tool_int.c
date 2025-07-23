@@ -7,7 +7,7 @@
 *
 */
 
-void tool_int(va_list note)
+int tool_int(va_list note)
 {
 int n = va_arg(note, int);
 int i = 0;
@@ -42,5 +42,5 @@ for (j = 0; j < i / 2; j++)
 	}
 
 write(1, buffer, i);
-
+return i;
 }
