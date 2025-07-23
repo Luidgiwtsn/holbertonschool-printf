@@ -12,31 +12,31 @@
 
 Pour réaliser cette fonction nous avions le droit d'utiliser :
 
-  . write (man 2 write)
-  . malloc (man 3 malloc)
-  . free (man 3 free)
-  . va_start (man 3 va_start)
-  . va_end (man 3 va_end)
-  . va_copy (man 3 va_copy)
-  . va_arg (man 3 va_arg)
+  - write (man 2 write)
+  - malloc (man 3 malloc)
+  - free (man 3 free)
+  - va_start (man 3 va_start)
+  - va_end (man 3 va_end)
+  - va_copy (man 3 va_copy)
+  - va_arg (man 3 va_arg)
 
 A l'inverse nous ne devions pas :
 
-  . Utiliser les fonctions présentes dans la bibliothèque standars de <stdio.h>
-  . Utiliser la condition "if" ou "switch"
-  . You don’t have to handle the flag characters
-  . You don’t have to handle field width
-  . You don’t have to handle precision
-  . You don’t have to handle the length modifiers
+  - Utiliser les fonctions présentes dans la bibliothèque standars de <stdio.h>
+  - Utiliser la condition "if" ou "switch"
+  - You don’t have to handle the flag characters
+  - You don’t have to handle field width
+  - You don’t have to handle precision
+  - You don’t have to handle the length modifiers
 
 # Organisation du travail pour le projet : 
 
 Temps estimer du projet : ( 35 heures ) 
 Condition de travail full présentielle au campus de Bordeaux, avec une division du travail à parts égale :
 
-.M.Lapique s'occuper de la tâche 0 qui gère les strings et les caractère. 
+  - M.Lapique s'occuper de la tâche 0 qui gère les strings et les caractère. 
 
-.M.Watson s'occuper de la tache 1 qui gère les entiers et les décimales.
+  - M.Watson s'occuper de la tache 1 qui gère les entiers et les décimales.
 
 Un travail sur deux branches à étaient réaliser avec un pull request pour fusionner a la branche principal en fin de projet de plus des check in régulier ont étaient organiser sur le travail du code de chacuns.
 
@@ -44,10 +44,10 @@ Un travail sur deux branches à étaient réaliser avec un pull request pour fus
 
 Nous avons pris la décision commune de diviser le commande en plusieurs fichiers afin de se répartir le travail plus facilement et de pouvoir controler individuellement chaque fonction en cas de problème lors de la compilation.
 
-. README.md : Un readme avec l'explication du projet et de sa structure. 
-. Tool-char.c : Une fonction pour pouvoir gerer le cas d'un caractère.
-. Tool_string.c : Une fonction pour pouvoir gerer le cas d'une string. 
-. Tool_int.c : Une fonction pour gerer le cas des entiers qu'ils soit négatif ou positif.
+- README.md : Un readme avec l'explication du projet et de sa structure. 
+- Tool-char.c : Une fonction pour pouvoir gerer le cas d'un caractère.
+- Tool_string.c : Une fonction pour pouvoir gerer le cas d'une string. 
+- Tool_int.c : Une fonction pour gerer le cas des entiers qu'ils soit négatif ou positif.
 - _printf.c : Notre fonction printf qui appelle les fonction Tool en fonction de la correspondance avec le tableau de structure "atlas"
 - main.c : Le fichier qui contient différent cas afin de pouvoir réaliser des test de l'executable _printf.
 - main.h : Le fichier Header avec nos prototype de fonction, nos différentres bibliothèques ainsi que notre variables de tableaux de structure.
@@ -70,10 +70,10 @@ Attention au standars de compilation de votre visual code ou de votre terminal !
 # Les évolutions possibles dans l'avenir :
 
 La fonction peut encore être largement améliorer afin de couvrir toutes les autres sorties commes : 
-  . Les unsigned [%u]
-  . Les unsigned octal [%o]
-  . Les unsigned hexadecimal [%x, %X]
-  . Les pointeur sur adresse [%p]
+  - Les unsigned [%u]
+  - Les unsigned octal [%o]
+  - Les unsigned hexadecimal [%x, %X]
+  - Les pointeur sur adresse [%p]
 
 De plus il manquerais d'ajouter une limite pour la valeur MIN et MAX d'un entier afin d'éviter toutes fuites de mémoire.
 
