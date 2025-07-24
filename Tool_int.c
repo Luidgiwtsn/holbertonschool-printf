@@ -1,50 +1,47 @@
-#include "main.h"
-
-/**
-*tool_int - Prints a single int from variadic arguments liste.
-*
-*@note: the va_list containing the arguments passed to _printf.
-*
-* This function retrieves an int from the va_list, handles negative
-* numbers, converts il to a string, and writes it to stdout.
-*
-*Return: Number of characters printed.
-*/
+#include <limits.h>  // Pour INT_MIN
 
 int tool_int(va_list note)
 {
-int n = va_arg(note, int);
-int i = 0;
-int sign;
-int j;
-char buffer[12];
+    int n = va_arg(note, int);
+    int i = 0, j, sign;
+    char buffer[12];
+    unsigned int u;
 
-sign = n < 0 ? -1 : 1;
+    sign = n < 0 ? -1 : 1;
 
-if (n == 0)
-buffer[i++] = '0';
+    if (n == 0)
+    {
+        buffer[i++] = '0';
+    }
+    else
+    {
+        if (n == INT_MIN) 
+        {
+            u = (unsigned int)(INT_MAX) + 1; 
+        }
+        else
+        {
+            u = (unsigned int)(sign * n); 
+        }
 
-else
-	{
-	if (sign == -1)
-	n = -n;
+        while (u > 0)
+        {
+            buffer[i++] = (u % 10) + '0';
+            u /= 10;
+        }
 
-	while (n > 0)
-		{
-		buffer[i++] = (n % 10) + '0';
-		n /= 10;
-		}
-	if (sign == -1)
-	buffer[i++] = '-';
-	}
+        if (sign == -1)
+            buffer[i++] = '-';
+    }
 
-for (j = 0; j < i / 2; j++)
-	{
-	char c = buffer[j];
+    // Inverser le buffer
+    for (j = 0; j < i / 2; j++)
+    {
+        char tmp = buffer[j];
+        buffer[j] = buffer[i - 1 - j];
+        buffer[i - 1 - j] = tmp;
+    }
 
-	buffer[j] = buffer[i - 1 - j];
-	buffer[i - 1 - j] = c;
-	}
-write(1, buffer, i);
-return (i);
+    write(1, buffer, i);
+    return (i);
 }
