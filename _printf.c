@@ -23,10 +23,12 @@ char buf[2], c = '%';
 
 va_start(note, format);
 
-while (format[a] != '\0')
+while (format && format[a] != '\0')
 	{
-	if (format[a] == '%' && format[a + 1] != '\0')
+	if (format[a] == '%')
 		{
+		if (format[a + 1] == '\0')
+			breack;
 		if (format[a + 1] == '%')
 			{
 			write(1, &c, 1);
