@@ -1,57 +1,50 @@
 #include "main.h"
-#include <limits.h> // Pour INT_MIN
 
 /**
-* tool_int - Prints an integer from a va_list
-* @note: va_list argument
-* Return: number of characters printed
+*tool_int - Prints a single int from variadic arguments liste.
+*
+*@note: the va_list containing the arguments passed to _printf.
+*
+* This function retrieves an int from the va_list, handles negative
+* numbers, converts il to a string, and writes it to stdout.
+*
+*Return: Number of characters printed.
 */
 
 int tool_int(va_list note)
 {
-	int n = va_arg(note, int);
-	unsigned int num;
-	int i = 0, j;
-	char buffer[12];
+int n = va_arg(note, int);
+int i = 0;
+int sign;
+int j;
+char buffer[12];
 
-	if (n < 0)
-	{
-		buffer[i++] = '-';
+sign = n < 0 ? -1 : 1;
 
-		if (n == INT_MIN)
-			num = (unsigned int)(INT_MAX) + 1; // 2147483648
-		else
-			num = -n;
-	}
-	else
-	{
-		num = n;
-	}
+if (n == 0)
+buffer[i++] = '0';
 
-	// Stocker les chiffres à l'envers temporairement
-	int start = i;
+else
+	{
+	if (sign == -1)
+	n = -n;
 
-	if (num == 0)
-	{
-		buffer[i++] = '0';
-	}
-	else
-	{
-		while (num > 0)
+	while (n > 0)
 		{
-			buffer[i++] = (num % 10) + '0';
-			num /= 10;
+		buffer[i++] = (n % 10) + '0';
+		n /= 10;
 		}
+	if (sign == -1)
+	buffer[i++] = '-';
 	}
 
-	// Inverser uniquement la partie numérique
-	for (j = start; j < (start + i) / 2; j++)
+for (j = 0; j < i / 2; j++)
 	{
-		char temp = buffer[j];
-		buffer[j] = buffer[start + i - 1 - j];
-		buffer[start + i - 1 - j] = temp;
-	}
+	char c = buffer[j];
 
-	write(1, buffer, i);
-	return (i);
+	buffer[j] = buffer[i - 1 - j];
+	buffer[i - 1 - j] = c;
+	}
+write(1, buffer, i);
+return (i);
 }
