@@ -28,7 +28,7 @@ while (format && format[a] != '\0')
 	if (format[a] == '%')
 		{
 		if (format[a + 1] == '\0')
-			breack;
+			break;
 		if (format[a + 1] == '%')
 			{
 			write(1, &c, 1);
